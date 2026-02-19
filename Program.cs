@@ -6,8 +6,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<IUserService, UserService>();
 
-var app = builder.Build();
+builder.Services.AddRazorPages();
 
+var app = builder.Build();
+app.MapRazorPages();
 app.UseStaticFiles();
 app.UseRouting();
 
